@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASSAN ASCII - BINARY | Professional Converter & Educational Tool</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            dark: '#060911',
+                            card: '#111726',
+                            border: '#1e293b',
+                            accent: '#00f0ff',
+                            neon: '#39ff14',
+                            purple: '#bd00ff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #060911;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(0, 240, 255, 0.04) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(57, 255, 20, 0.04) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        .glass-panel {
+            background: rgba(17, 23, 38, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+        }
+        .glow-neon {
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.15);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0d14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+
+    <!-- Header Navigation -->
+    <header class="w-full border-b border-gray-800/80 glass-panel sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <!-- Custom Profile Image Logo -->
+                <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-cyan-500 to-green-400 p-[2px] shadow-lg shadow-cyan-500/25 overflow-hidden">
+                    <img src="https://i.ibb.co/21qmyHBJ/jawadmd.jpg" alt="HASSAN ASCII Logo" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-teal-300 to-green-400 font-mono">
+                        HASSAN ASCII - BINARY
+                    </h1>
+                    <p class="text-[10px] text-gray-400 tracking-widest uppercase font-mono">Advanced Division & ASCII Engine</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <!-- 8-Bit Padding Toggle Switch -->
+                <div class="hidden sm:flex items-center space-x-2 bg-slate-900/80 px-3 py-1.5 rounded-lg border border-slate-800">
+                    <span class="text-xs font-mono text-gray-400">8-Bit Padding:</span>
+                    <button id="paddingToggle" onclick="togglePadding()" class="w-10 h-5 bg-cyan-500/20 border border-cyan-500/40 rounded-full relative transition-colors duration-200 focus:outline-none">
+                        <div id="paddingKnob" class="w-3.5 h-3.5 bg-cyan-400 rounded-full absolute top-0.5 left-5 transition-transform duration-200 shadow-sm"></div>
+                    </button>
+                </div>
+                <a href="https://binary-privacy.vercel.app" class="px-3 py-1.5 rounded-lg bg-gray-800/60 hover:bg-gray-800 text-gray-300 text-xs font-mono transition border border-gray-700/50">
+                    <i class="fa-solid fa-shield-halved mr-1 text-cyan-400"></i> Privacy Policy
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex-grow w-full space-y-8">
+        
+        <!-- Hero Banner / Description -->
+        <div class="glass-panel rounded-2xl p-6 sm:p-8 relative overflow-hidden glow-cyan">
+            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 max-w-3xl">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 uppercase tracking-wider">
+                    Interactive ASCII & Division Engine
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-3 font-mono">Convert Text, Symbols & ASCII Code Instantly</h2>
+                <p class="text-sm text-gray-400 mt-2 leading-relaxed">
+                    Type any character (English uppercase, lowercase, numbers, or symbols) or input an ASCII code directly. View the step-by-step division calculation ladder and how binary outputs are assembled!
+                </p>
+            </div>
+        </div>
+
+        <!-- Quick Sample Presets -->
+        <div class="space-y-2">
+            <label class="text-xs font-mono text-gray-400 uppercase tracking-wider block"><i class="fa-solid fa-bolt text-cyan-400 mr-1"></i> Quick Test Presets:</label>
+            <div class="flex flex-wrap gap-2">
+                <button onclick="setPreset('7')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-500/10 border border-slate-800 hover:border-cyan-500/30 text-xs font-mono text-cyan-300 transition">Character '7' (ASCII 55)</button>
+                <button onclick="setPreset('A')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-500/10 border border-slate-800 hover:border-cyan-500/30 text-xs font-mono text-cyan-300 transition">Character 'A' (ASCII 65)</button>
+                <button onclick="setPreset('h')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-500/10 border border-slate-800 hover:border-cyan-500/30 text-xs font-mono text-cyan-300 transition">Character 'h' (ASCII 104)</button>
+                <button onclick="setPreset('@')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-500/10 border border-slate-800 hover:border-cyan-500/30 text-xs font-mono text-cyan-300 transition">Symbol '@' (ASCII 64)</button>
+                <button onclick="setPreset('Hello')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-500/10 border border-slate-800 hover:border-cyan-500/30 text-xs font-mono text-cyan-300 transition">String 'Hello'</button>
+            </div>
+        </div>
+
+        <!-- Dual Input Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Text / Character Input -->
+            <div class="glass-panel rounded-2xl p-6 space-y-4 shadow-xl border border-gray-800">
+                <div class="flex items-center justify-between">
+                    <label for="textInput" class="block text-sm font-mono font-bold text-cyan-400">
+                        <i class="fa-solid fa-keyboard mr-2"></i> Text or Character Input
+                    </label>
+                    <span class="text-xs text-gray-500 font-mono">Any character / symbol</span>
+                </div>
+                <div class="relative">
+                    <input type="text" id="textInput" value="7" oninput="handleTextInput()" placeholder="Type any character or word..." 
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white font-mono text-lg focus:outline-none focus:border-cyan-500 transition-colors shadow-inner">
+                </div>
+                <p class="text-xs text-gray-400">Type uppercase, lowercase, numbers, or punctuation marks.</p>
+            </div>
+
+            <!-- Direct ASCII Code Input -->
+            <div class="glass-panel rounded-2xl p-6 space-y-4 shadow-xl border border-gray-800">
+                <div class="flex items-center justify-between">
+                    <label for="asciiInput" class="block text-sm font-mono font-bold text-green-400">
+                        <i class="fa-solid fa-calculator mr-2"></i> Direct ASCII Decimal Code
+                    </label>
+                    <span class="text-xs text-gray-500 font-mono">Range: 0 - 255</span>
+                </div>
+                <div class="relative">
+                    <input type="number" id="asciiInput" value="55" min="0" max="255" oninput="handleAsciiInput()" placeholder="Enter decimal (e.g. 55)..." 
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white font-mono text-lg focus:outline-none focus:border-green-500 transition-colors shadow-inner">
+                </div>
+                <p class="text-xs text-gray-400">Enter a decimal number directly to calculate its binary value.</p>
+            </div>
+        </div>
+
+        <!-- Multi-Character Tabs (Visible if string length > 1) -->
+        <div id="charTabsContainer" class="hidden glass-panel rounded-2xl p-6 space-y-4 border border-cyan-500/30">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-mono font-bold text-cyan-300">
+                    <i class="fa-solid fa-layer-group mr-2"></i> Multi-Character Inspection Tabs
+                </h3>
+                <span id="charCountBadge" class="px-2.5 py-1 rounded-full text-xs font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">1 Character</span>
+            </div>
+            <div id="charTabsList" class="flex flex-wrap gap-2 pt-2">
+                <!-- Dynamically generated character tabs -->
+            </div>
+        </div>
+
+        <!-- Results Overview Card -->
+        <div class="glass-panel rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl border border-gray-800">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-800">
+                <div>
+                    <span class="text-xs font-mono text-gray-400 uppercase tracking-wider">Active Inspection Target</span>
+                    <h3 id="activeTitleTarget" class="text-2xl font-bold font-mono text-white mt-1">Character: '7'</h3>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button onclick="copyBinaryResult()" class="px-4 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 font-mono text-xs font-bold transition flex items-center space-x-2">
+                        <i class="fa-regular fa-copy"></i>
+                        <span id="copyBtnText">Copy Binary</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800">
+                    <span class="text-xs font-mono text-gray-400 uppercase">ASCII Decimal</span>
+                    <div id="statAscii" class="text-2xl font-mono font-bold text-cyan-400 mt-1">55</div>
+                </div>
+                <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800">
+                    <span class="text-xs font-mono text-gray-400 uppercase">Hexadecimal</span>
+                    <div id="statHex" class="text-2xl font-mono font-bold text-teal-400 mt-1">0x37</div>
+                </div>
+                <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800">
+                    <span class="text-xs font-mono text-gray-400 uppercase">Final Binary Output</span>
+                    <div id="statBinary" class="text-xl sm:text-2xl font-mono font-bold text-green-400 mt-1 tracking-wider">00110111</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step-by-Step Division Process (The Core Requirement) -->
+        <div class="glass-panel rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl border border-gray-800">
+            <div class="flex items-center justify-between flex-wrap gap-4 pb-4 border-b border-gray-800">
+                <div>
+                    <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-green-500/10 text-green-400 border border-green-500/20 uppercase tracking-wider">
+                        Methodology
+                    </span>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-white mt-2 font-mono">Step-by-Step Division Process</h3>
+                </div>
+                <p class="text-xs text-gray-400 font-mono">Successive Division by 2 with Remainders</p>
+            </div>
+
+            <!-- Explanation Box -->
+            <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 text-sm text-gray-300 space-y-2">
+                <p><strong class="text-cyan-400">How it works:</strong> We divide the ASCII decimal number successively by 2. Each step yields a quotient and a remainder ($0$ or $1$).</p>
+                <p><strong class="text-green-400">Reading Order:</strong> Read remainders from <strong>BOTTOM to TOP</strong> to form the raw binary sequence. Then, apply 8-bit byte padding if enabled!</p>
+            </div>
+
+            <!-- Division Ladder Display -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                
+                <!-- Visual Ledger Box -->
+                <div class="bg-slate-950 rounded-2xl p-6 border border-slate-800 font-mono shadow-inner space-y-3">
+                    <div class="text-xs text-gray-500 border-b border-slate-800 pb-2 flex justify-between">
+                        <span>DIVISOR | DIVIDEND</span>
+                        <span>QUOTIENT - REMAINDER</span>
+                    </div>
+                    <div id="divisionLedger" class="space-y-2 text-sm sm:text-base">
+                        <!-- Ledger items populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Breakdown Cards -->
+                <div class="space-y-3" id="divisionStepsList">
+                    <!-- Cards populated dynamically -->
+                </div>
+
+            </div>
+
+            <!-- Final Binary Assembly Explanation -->
+            <div class="bg-gradient-to-r from-cyan-950/30 to-green-950/30 rounded-xl p-5 border border-cyan-500/20 space-y-3">
+                <h4 class="font-mono font-bold text-cyan-300 text-sm flex items-center">
+                    <i class="fa-solid fa-arrow-up-long mr-2 text-green-400"></i> Assembly & 8-Bit Padding
+                </h4>
+                <div class="text-xs sm:text-sm font-mono text-gray-300 space-y-1">
+                    <p>1. Bottom-to-Top Remainder Sequence: <span id="rawRemainderSeq" class="text-cyan-400 font-bold">110111</span></p>
+                    <p>2. 8-Bit Byte Standard Padding (Adding leading zeros): <span id="paddedBinarySeq" class="text-green-400 font-bold">00110111</span></p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-gray-800/80 glass-panel py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-mono">
+            <div class="flex items-center space-x-3">
+                <div class="w-7 h-7 rounded-full overflow-hidden border border-cyan-500/30">
+                    <img src="https://i.ibb.co/21qmyHBJ/jawadmd.jpg" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <span>© 2026 HASSAN ASCII - BINARY. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="https://binary-privacy.vercel.app" class="hover:text-cyan-400 transition">Privacy & Policy</a>
+                <a href="https://binary-maker.vercel.app" class="hover:text-cyan-400 transition">App Home</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        let use8BitPadding = true;
+        let currentText = "7";
+        let activeCharIndex = 0;
+
+        function togglePadding() {
+            use8BitPadding = !use8BitPadding;
+            const knob = document.getElementById('paddingKnob');
+            const toggle = document.getElementById('paddingToggle');
+            if (use8BitPadding) {
+                knob.style.transform = 'translateX(20px)';
+                toggle.style.backgroundColor = 'rgba(0, 240, 255, 0.2)';
+            } else {
+                knob.style.transform = 'translateX(0px)';
+                toggle.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            }
+            processInput();
+        }
+
+        function setPreset(val) {
+            document.getElementById('textInput').value = val;
+            handleTextInput();
+        }
+
+        function handleTextInput() {
+            const val = document.getElementById('textInput').value;
+            currentText = val.length > 0 ? val : " ";
+            activeCharIndex = Math.min(activeCharIndex, currentText.length - 1);
+            
+            // Update ASCII input box with active character's ASCII
+            const charCode = currentText.charCodeAt(activeCharIndex);
+            document.getElementById('asciiInput').value = charCode;
+            
+            renderTabs();
+            calculateAndRender(charCode);
+        }
+
+        function handleAsciiInput() {
+            let val = parseInt(document.getElementById('asciiInput').value);
+            if (isNaN(val)) val = 0;
+            if (val < 0) val = 0;
+            if (val > 255) val = 255;
+
+            currentText = String.fromCharCode(val);
+            activeCharIndex = 0;
+            document.getElementById('textInput').value = currentText;
+
+            renderTabs();
+            calculateAndRender(val);
+        }
+
+        function renderTabs() {
+            const container = document.getElementById('charTabsContainer');
+            const list = document.getElementById('charTabsList');
+            const badge = document.getElementById('charCountBadge');
+
+            if (currentText.length > 1) {
+                container.classList.remove('hidden');
+                badge.innerText = `${currentText.length} Characters`;
+                list.innerHTML = '';
+
+                for (let i = 0; i < currentText.length; i++) {
+                    const char = currentText[i];
+                    const code = char.charCodeAt(0);
+                    const isActive = i === activeCharIndex;
+
+                    const btn = document.createElement('button');
+                    btn.className = `px-3 py-2 rounded-xl font-mono text-xs flex items-center space-x-2 border transition-all ${
+                        isActive 
+                            ? 'bg-cyan-500/20 border-cyan-500 text-cyan-300 shadow-md shadow-cyan-500/10' 
+                            : 'bg-slate-950 border-slate-800 text-gray-400 hover:border-gray-700'
+                    }`;
+                    btn.innerHTML = `<span>[${i}]</span> <strong class="text-white text-sm">"${char === ' ' ? '␣' : char}"</strong> <span class="text-gray-500">(${code})</span>`;
+                    btn.onclick = () => {
+                        activeCharIndex = i;
+                        document.getElementById('asciiInput').value = code;
+                        renderTabs();
+                        calculateAndRender(code);
+                    };
+                    list.appendChild(btn);
+                }
+            } else {
+                container.classList.add('hidden');
+            }
+        }
+
+        function calculateAndRender(asciiVal) {
+            const activeChar = currentText[activeCharIndex] || currentText[0] || '7';
+            const displayChar = activeChar === ' ' ? 'Space (␣)' : activeChar;
+            document.getElementById('activeTitleTarget').innerText = `Character: '${displayChar}' (Index ${activeCharIndex})`;
+
+            // Stats
+            document.getElementById('statAscii').innerText = asciiVal;
+            document.getElementById('statHex').innerText = '0x' + asciiVal.toString(16).toUpperCase().padStart(2, '0');
+
+            // Division steps calculation
+            let temp = asciiVal;
+            const steps = [];
+
+            if (temp === 0) {
+                steps.push({ quotient: 0, remainder: 0 });
+            } else {
+                while (temp > 0) {
+                    const quotient = Math.floor(temp / 2);
+                    const remainder = temp % 2;
+                    steps.push({ dividend: temp, quotient: quotient, remainder: remainder });
+                    temp = quotient;
+                }
+            }
+
+            // Raw remainder string (bottom to top)
+            const rawRemainders = steps.map(s => s.remainder).reverse().join('');
+            
+            // Padded binary
+            let finalBinary = rawRemainders;
+            if (use8BitPadding) {
+                finalBinary = rawRemainders.padStart(8, '0');
+            }
+
+            document.getElementById('statBinary').innerText = finalBinary;
+            document.getElementById('rawRemainderSeq').innerText = rawRemainders.padEnd(8, '0');
+            document.getElementById('paddedBinarySeq').innerText = finalBinary;
+
+            // Render Division Ledger
+            const ledgerEl = document.getElementById('divisionLedger');
+            ledgerEl.innerHTML = '';
+
+            // Render Step Cards
+            const stepsListEl = document.getElementById('divisionStepsList');
+            stepsListEl.innerHTML = '';
+
+            steps.forEach((step, idx) => {
+                // Ledger row
+                const row = document.createElement('div');
+                row.className = 'flex justify-between items-center py-1.5 border-b border-slate-900 text-gray-300';
+                row.innerHTML = `
+                    <span class="text-cyan-400">2 | <strong class="text-white">${step.dividend}</strong></span>
+                    <span class="text-gray-400">→ ${step.quotient} &nbsp;&nbsp;|&nbsp;&nbsp; <span class="text-green-400 font-bold">${step.remainder}</span></span>
+                `;
+                ledgerEl.appendChild(row);
+
+                // Step Card
+                const card = document.createElement('div');
+                card.className = 'bg-slate-950/80 rounded-xl p-3 border border-slate-900 flex items-center justify-between text-xs font-mono';
+                card.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <span class="w-6 h-6 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold">#${idx + 1}</span>
+                        <span class="text-gray-300">${step.dividend} ÷ 2 = <strong class="text-white">${step.quotient}</strong></span>
+                    </div>
+                    <div class="bg-green-500/10 text-green-400 px-3 py-1 rounded-lg border border-green-500/20 font-bold">
+                        Remainder: ${step.remainder}
+                    </div>
+                `;
+                stepsListEl.appendChild(card);
+            });
+        }
+
+        function copyBinaryResult() {
+            const binaryText = document.getElementById('statBinary').innerText;
+            navigator.clipboard.writeText(binaryText);
+            const btnText = document.getElementById('copyBtnText');
+            btnText.innerText = "Copied!";
+            setTimeout(() => {
+                btnText.innerText = "Copy Binary";
+            }, 2000);
+        }
+
+        // Initialize on load
+        window.onload = () => {
+            handleTextInput();
+        };
+    </script>
+
+</body>
+</html>
